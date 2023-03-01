@@ -28,7 +28,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn clean install -DskipTests -pl . -am
     - name: Run Flaky test
       run: mvn -pl . test -Dtest=com.hubspot.jinjava.EagerTest#itHandlesDoubleImportModification
 
